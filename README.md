@@ -1,6 +1,6 @@
 # Note Taker
 
-    <img class="mb-4" src="images/wm37.png" alt="" width="150" height="100">
+    <img class="mb-4" src="images/notetaker.png" alt="" width="150" height="100">
 
 
 # Description
