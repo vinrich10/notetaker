@@ -1,7 +1,5 @@
 # Note Taker
 
-    <img class="mb-4" src="images/notetaker.png" alt="" width="150" height="100">
-
 
 # Description
 This app allows users to create & save notes using a backend server.
