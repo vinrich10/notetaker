@@ -1,16 +1,17 @@
-import db from "./db/db.json";
-import express, { urlencoded, json, static } from "express";
-import htmlRoutes from "./routes/htmlRoutes";
-import apiRoutes from "./routes/apiRoutes";
-const app = express();
-const PORT = process.env.PORT || 3000;
-app.use(urlencoded({ extended: true }));
-app.use(json());
-app.use(static("public"));
-app.use("/api", apiRoutes);
-app.use("/", htmlRoutes);
+const express = require('express');
 
-app.listen(3000, function() {
-    console.log("Server is running on port 3000");
-    
-    });
+const app = express();
+
+
+const PORT = process.env.PORT || 3001;
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+require('./apiroutes')(app);
+require('./htmlroutes')(app);
+
+
+app.listen(PORT, () => {
+    console.log(`App listening on PORT: ${PORT}`)
+});
