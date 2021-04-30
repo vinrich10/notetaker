@@ -1,15 +1,7 @@
 # Note Taker
 
-
 # Description
 This app allows users to create & save notes using a backend server.
-
-# Installation
-Clone the repo to your local device - Run npm install & node server.js.
-The app is also deployed via Herolu.
-
-# Preview
-
 
 # License
 This project is licensed under the MIT license. 
