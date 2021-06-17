@@ -18,11 +18,11 @@ function jsonReader(filePath, cb) {
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname + './public/index.html'));
+        res.sendFile(path.join(__dirname + './Public/index.html'));
     });
 
     app.get('/notes', (req, res) => {
-        res.sendFile(path.join(__dirname + './public/notes.html'));
+        res.sendFile(path.join(__dirname + './Public/notes.html'));
     });
 
     // app.get('/assets/css/styles.css', (req, res) => {
@@ -34,6 +34,6 @@ module.exports = (app) => {
     // });
 
     app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname + './public/index.html'));
+        res.sendFile(path.join(__dirname + './Public/index.html'));
     });
 };
