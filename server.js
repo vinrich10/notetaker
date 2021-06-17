@@ -10,11 +10,11 @@ app.use(express.json());
 app.use(express.static("Public"))
 
 require('./apiroutes')(app);
-// require('./htmlroutes')(app);
+require('./htmlroutes')(app);
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "./Public/index.html"))
-})
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(__dirname, "./Public/index.html"))
+// })
 
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`)
