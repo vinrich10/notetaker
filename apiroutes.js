@@ -4,7 +4,7 @@ const {
 } = require('uuid');
 const util = require('util');
 
-const dbFile = require('../db/db.json');
+const dbFile = require('./db/db.json');
 
 function jsonReader(filePath, cb) {
     fs.readFile(filePath, (err, fileData) => {
@@ -23,7 +23,7 @@ function jsonReader(filePath, cb) {
 module.exports = (app) => {
 
     app.delete('/api/notes/:id', (req, res) => {
-        jsonReader('public/assets/db/db.json', (err, note) => {
+        jsonReader('db/db.json', (err, note) => {
             if (err) {
                 console.log(err);
                 return;
@@ -33,8 +33,9 @@ module.exports = (app) => {
                 if (item.id === req.params.id) {
                     note.splice(i, 1);
                     console.log(note);
-                    fs.writeFile('public/assets/db/db.json', JSON.stringify(note), err => {
+                    fs.writeFile('db/db.json', JSON.stringify(note), err => {
                         if (err) throw err;
+                        res.json("cats")
                     })
                     
                 } else {
@@ -46,7 +47,7 @@ module.exports = (app) => {
     })
 
     app.post('/api/notes/', (req, res) => {
-        jsonReader('public/assets/db/db.json', (err, note) => {
+        jsonReader('db/db.json', (err, note) => {
             if (err) {
                 console.log(err);
                 return;
@@ -59,7 +60,7 @@ module.exports = (app) => {
                 "id": uuidv4()
             };
             dbFile.push(newObj);
-            fs.writeFile("public/assets/db/db.json", JSON.stringify(dbFile), err => {
+            fs.writeFile("db/db.json", JSON.stringify(dbFile), err => {
                 if (err) throw err;
                 console.log("Done Writing")
                 return;
@@ -70,7 +71,7 @@ module.exports = (app) => {
     })
 
     app.get('/api/notes', (req, res) => {
-        jsonReader('public/assets/db/db.json', (err, note) => {
+        jsonReader('db/db.json', (err, note) => {
             if (err) {
                 console.log(err);
                 return;
